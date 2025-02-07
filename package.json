@@ -1,0 +1,32 @@
+{
+  "name": "avion_admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.72.1",
+    "icons": "^1.0.0",
+    "jotai": "^2.11.1",
+    "next": "^14.2.23",
+    "next-sanity": "^9.8.47",
+    "react": "^18.3.1",
+    "react-dom": "^18",
+    "react-icons": "^5.4.0",
+    "sanity": "^3.72.1",
+    "styled-components": "^6.1.14"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
