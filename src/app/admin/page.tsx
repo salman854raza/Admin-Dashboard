@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaBox, FaMoneyBillWave, FaShoppingCart, FaUsers } from "react-icons/fa";
+import { FaBox, FaClipboardList, FaClock, FaCubes, FaMoneyCheckAlt, FaTruck } from "react-icons/fa";
 import { client } from "@/sanity/lib/client";
 import { motion } from "framer-motion";
 
@@ -96,147 +96,168 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-50 p-6 md:ml-64">
       {/* Animated Banner */}
       <motion.div
-        className="mb-8 bg-white p-4 rounded-lg shadow-lg text-center mt-20 md:mt-0"
+        className="mb-8 bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-lg shadow-lg text-center mt-20 md:mt-0"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <p
-          style={{ fontFamily: "'Jameel Noori Nastaleeq', cursive" }}
-          className="text-3xl font-bold text-red-600"
-        >
-          بسم الله الرحمن الرحيم
-        </p>
-        <p className="text-2xl font-bold text-gray-600 mt-2">
-          In the Name of Allah, the Most Gracious, the Most Merciful
-        </p>
+         <p
+    style={{ 
+      fontFamily: "'Noto Naskh Arabic', serif",
+      lineHeight: '2.5rem'
+    }}
+    className="text-4xl text-center p-6 bg-white rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-900"
+  >
+    ﴾بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ﴿
+  </p>
+  <p className="mt-4 text-gray-600 text-lg">
+    (In the name of Allah, the Most Gracious, the Most Merciful)
+  </p>
       </motion.div>
 
       {/* Dashboard Heading */}
-      <motion.h1
-        className="text-3xl font-bold text-blue-900 mb-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Dashboard
-      </motion.h1>
+     <motion.h1
+  className="text-5xl font-extrabold mb-8"
+  style={{
+    fontFamily: "'Poppins', sans-serif",
+    background: "linear-gradient(45deg, #6EE7B7, #3B82F6)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }}
+  initial={{ opacity: 0, scale: 0.8 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ 
+    duration: 0.8,
+    delay: 0.2,
+    ease: [0.2, 0.71, 0.2, 1.01]
+  }}
+  whileHover={{ scale: 1.05, rotate: -1 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Dashboard
+</motion.h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Total Products Card */}
-        <motion.div
-          className="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4 cursor-pointer"
-          custom={0}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
-          }}
-        >
-          <FaBox className="text-4xl text-blue-500" />
-          <div>
-            <h2 className="text-lg font-semibold">Total Products</h2>
-            <p className="text-2xl font-bold">{totalProducts}</p>
-          </div>
-        </motion.div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 bg-transparent">
+  {/* Total Products Card */}
+  <motion.div
+    className="relative rounded-xl p-6 flex items-center space-x-4 cursor-pointer  transition-all duration-300"
+    custom={0}
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    whileHover={{
+      scale: 1.05,
+      rotate: -1,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    <FaBox className="text-5xl text-indigo-600 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    <div>
+      <h2 className="text-xl font-bold text-black">Total Products</h2>
+      <p className="text-3xl font-extrabold text-white">{totalProducts}</p>
+    </div>
+  </motion.div>
 
-        {/* Total Stock Card */}
-        <motion.div
-          className="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4 cursor-pointer"
-          custom={1}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
-          }}
-        >
-          <FaShoppingCart className="text-4xl text-green-500" />
-          <div>
-            <h2 className="text-lg font-semibold">Total Stock</h2>
-            <p className="text-2xl font-bold">{totalStock}</p>
-          </div>
-        </motion.div>
+  {/* Total Stock Card */}
+  <motion.div
+    className="relative rounded-xl p-6 flex items-center space-x-4 cursor-pointer  transition-all duration-300"
+    custom={1}
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    whileHover={{
+      scale: 1.05,
+      rotate: 1,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    <FaCubes className="text-5xl text-emerald-600 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    <div>
+      <h2 className="text-xl font-bold text-black">Total Stock</h2>
+      <p className="text-3xl font-extrabold text-black">{totalStock}</p>
+    </div>
+  </motion.div>
 
-        {/* Total Sales Amount Card */}
-        <motion.div
-          className="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4 cursor-pointer"
-          custom={2}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
-          }}
-        >
-          <FaMoneyBillWave className="text-4xl text-yellow-500" />
-          <div>
-            <h2 className="text-lg font-semibold">Total Sales Amount</h2>
-            <p className="text-2xl font-bold">${totalAmount.toFixed(2)}</p>
-          </div>
-        </motion.div>
+  {/* Total Sales Amount Card */}
+  <motion.div
+    className="relative rounded-xl p-6 flex items-center space-x-4 cursor-pointer transition-all duration-300"
+    custom={2}
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    whileHover={{
+      scale: 1.05,
+      rotate: -1,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    <FaMoneyCheckAlt className="text-5xl text-yellow-700 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    <div>
+      <h2 className="text-xl font-bold text-black">Total Sales Amount</h2>
+      <p className="text-3xl font-extrabold text-black">${totalAmount.toFixed(2)}</p>
+    </div>
+  </motion.div>
 
-        {/* Total Orders Card */}
-        <motion.div
-          className="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4 cursor-pointer"
-          custom={3}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
-          }}
-        >
-          <FaUsers className="text-4xl text-red-500" />
-          <div>
-            <h2 className="text-lg font-semibold">Total Orders</h2>
-            <p className="text-2xl font-bold">{totalOrders}</p>
-          </div>
-        </motion.div>
+  {/* Total Orders Card */}
+  <motion.div
+    className="relative rounded-xl p-6 flex items-center space-x-4 cursor-pointer  transition-all duration-300"
+    custom={3}
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    whileHover={{
+      scale: 1.05,
+      rotate: 1,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    <FaClipboardList className="text-5xl text-green-300 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    <div>
+      <h2 className="text-xl font-bold text-black">Total Orders</h2>
+      <p className="text-3xl font-extrabold text-black">{totalOrders}</p>
+    </div>
+  </motion.div>
 
-        {/* Delivered Orders Card */}
-        <motion.div
-          className="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4 cursor-pointer"
-          custom={4}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
-          }}
-        >
-          <FaShoppingCart className="text-4xl text-teal-500" />
-          <div>
-            <h2 className="text-lg font-semibold">Delivered Orders</h2>
-            <p className="text-2xl font-bold">{deliveredOrders}</p>
-          </div>
-        </motion.div>
+  {/* Delivered Orders Card */}
+  <motion.div
+    className="relative rounded-xl p-6 flex items-center space-x-4 cursor-pointer transition-all duration-300"
+    custom={4}
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    whileHover={{
+      scale: 1.05,
+      rotate: -1,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    <FaTruck className="text-5xl text-blue-500 opacity-80 hover:opacity-100 transition-opacity duration-300" />
+    <div>
+      <h2 className="text-xl font-bold text-black">Delivered Orders</h2>
+      <p className="text-3xl font-extrabold text-black">{deliveredOrders}</p>
+    </div>
+  </motion.div>
 
-        {/* Pending Orders Card */}
-        <motion.div
-          className="bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4 cursor-pointer"
-          custom={5}
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
-          }}
-        >
-          <FaShoppingCart className="text-4xl text-orange-500" />
-          <div>
-            <h2 className="text-lg font-semibold">Pending Orders</h2>
-            <p className="text-2xl font-bold">{pendingOrders}</p>
-          </div>
-        </motion.div>
-      </div>
+  {/* Pending Orders Card */}
+  <motion.div
+    className="relative rounded-xl p-6 flex items-center space-x-4 cursor-pointer transition-all duration-300"
+    custom={5}
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    whileHover={{
+      scale: 1.05,
+      rotate: 1,
+      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    <FaClock className="text-5xl text-green-600 hover:opacity-100 transition-opacity duration-300" />
+    <div>
+      <h2 className="text-xl font-bold text-black">Pending Orders</h2>
+      <p className="text-3xl font-extrabold text-black">{pendingOrders}</p>
+    </div>
+  </motion.div>
+</div>
     </div>
   );
 }

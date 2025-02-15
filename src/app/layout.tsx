@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Avion",
+  title: "Shopping",
   description: "Created By Muhammad Shahroz",
 };
 
