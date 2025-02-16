@@ -154,7 +154,7 @@ export default function Dashboard() {
     <FaBox className="text-5xl text-indigo-600 opacity-80 hover:opacity-100 transition-opacity duration-300" />
     <div>
       <h2 className="text-xl font-bold text-black">Total Products</h2>
-      <p className="text-3xl font-extrabold text-white">{totalProducts}</p>
+      <p className="text-3xl font-extrabold text-black">{totalProducts}</p>
     </div>
   </motion.div>
 
